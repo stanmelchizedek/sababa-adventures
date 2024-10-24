@@ -9,6 +9,7 @@ import cloud from "../assets/images/cartoon_cloud.png";
 
 import Carousel from "../components/Carousel.astro";
 import TrekkingSection from "@/components/home/TrekkingSection.astro";
+import { ItenaryCarousel } from "@/components/home/ItenaryCarousel";
 
 ---
 
@@ -69,30 +70,8 @@ import TrekkingSection from "@/components/home/TrekkingSection.astro";
           </p>
         </div>
 
-        <Carousel>
-          {
-            [1, 2, 3, 4, 5, 6].map((item) => (
-              <div class="swiper-slide overflow-hidden rounded-xl relative group duration-700 cursor-pointer w-full">
-                <Image
-                  alt=""
-                  src={img1}
-                  class="w-full h-96 object-cover group-hover:scale-105 transition-transform brightness-90"
-                />
-                <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-gray-950/50">
-                  <h3 class="text-white text-xl md:text-3xl font-bold mb-4">
-                    4 Days Serengeti Safari
-                  </h3>
-                  <div class="flex items-center justify-between">
-                    <p class="text-white text-lg md:text-3xl">$1200</p>
-                    <button class="bg-transparent group-hover:bg-white text-white transition-colors group-hover:text-darkForestGreen border-2 border-white max-md:text-xs px-4 py-2 rounded-3xl font-poppins font-semibold">
-                      Read More
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))
-          }
-        </Carousel>
+        <ItenaryCarousel client:load/>
+        <br><br>
       </section>
     </div>
 
