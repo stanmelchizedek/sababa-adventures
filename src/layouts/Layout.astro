@@ -1,8 +1,9 @@
 ---
-import Navbar from '../components/Navbar.astro';
+import Navbar from "@/components/Navbar.astro";
+import "@/styles/globals.css"
 
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -10,40 +11,73 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<Navbar />
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Syne:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Navbar />
+    <slot />
+  </body>
+  
 </html>
 <style is:global>
-	@font-face {
-		font-family: "Questrial-Regular";
-		src: url(../assets/fonts/Questrial-Regular.ttf);
-	}
+  body {
+    @apply text-darkForestGreen/90;
+  }
+  .font-syne {
+    font-family: "Syne", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
 
-	@font-face {
-		font-family: LemonMilk;
-		src: url(../assets/fonts/LemonMilk.otf);
-	}
+  .font-poppins {
+    font-family: "Poppins", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
 
-	html {
-		font-family: "Questrial-Regular", sans-serif;
-	}
+  html {
+    font-family: "Questrial-Regular", sans-serif;
+  }
 
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		font-family: LemonMilk, sans-serif;
-	}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Syne", sans-serif;
+    font-weight: bold;
+  }
+  p {
+    font-family: "Poppins", sans-serif;
+    @apply text-base lg:text-lg
+  }
+  .sub-title {
+    @apply font-bold text-center text-lg lg:text-2xl mb-6 text-white bg-primaryBrown w-fit mx-auto px-4;
+  }
+  .sub-title-green {
+    @apply font-bold text-center text-lg lg:text-2xl mb-6 text-white bg-forestGreen w-fit mx-auto px-4;
+  }
+  .section-title {
+    @apply text-darkForestGreen text-4xl md:text-5xl mb-4;
+  }
+  .section-title-light {
+    @apply text-white text-4xl md:text-5xl mb-4;
+  }
 </style>

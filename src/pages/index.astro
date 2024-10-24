@@ -1,9 +1,103 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+
+import { Image } from "astro:assets";
+import img1 from "../assets/images/IMG-032.jpg";
+
+import cloud from "../assets/images/cartoon_cloud.png";
+
+import Carousel from "../components/Carousel.astro";
+import TrekkingSection from "@/components/home/TrekkingSection.astro";
+
 ---
 
 <Layout title="Welcome to Sababa Adventures.">
-	<main>
-		
-	</main>
+  <main>
+    <Header />
+
+    <div class="max-w-6xl 2xl:max-w-7xl mx-auto my-36">
+      <section class="text-center max-w-4xl mx-auto px-4">
+        <p class="sub-title">Who We Are​.</p>
+        <h3 class="section-title">
+          Your Gateway to <br />
+          Authentic African Adventures​
+        </h3>
+        <p>
+          Sababa Adventures is a proudly 100% locally owned company,
+          specializing in tailor-made safaris across Tanzania. With an in-depth
+          knowledge of the regions and the safari industry, we offer a wide
+          range of accommodation options, from adventurous camps to luxurious
+          lodges. Our expertise ensures each journey is uniquely crafted,
+          providing unforgettable experiences that showcase the true spirit of
+          Tanzania.
+        </p>
+      </section>
+      <div class="grid grid-cols-2 md:grid-cols-5 mx-auto mt-20 gap-4 px-4">
+        <div class={`w-full h-64 lg:h-80 rounded-xl overflow-hidden `}>
+          <Image src={img1} alt="" class="w-full h-full object-cover" />
+        </div>
+        <div
+          class={`w-full h-64 lg:h-80 rounded-xl overflow-hidden mt-16 md:mt-16`}
+        >
+          <Image src={img1} alt="" class="w-full h-full object-cover" />
+        </div>
+        <div
+          class={`w-full h-64 lg:h-80 rounded-xl overflow-hidden max-md:-mt-16`}
+        >
+          <Image src={img1} alt="" class="w-full h-full object-cover" />
+        </div>
+        <div class={`w-full h-64 lg:h-80 rounded-xl overflow-hidden  md:mt-16`}>
+          <Image src={img1} alt="" class="w-full h-full object-cover" />
+        </div>
+        <div
+          class={`w-full h-64 lg:h-80 rounded-xl overflow-hidden hidden md:block`}
+        >
+          <Image src={img1} alt="" class="w-full h-full object-cover" />
+        </div>
+      </div>
+
+      <br /><br /><br />
+
+      <section class="my-36 mx-auto px-4">
+        <div class="max-w-4xl mx-auto mb-8">
+          <p class="sub-title">What have to Offer</p>
+          <h3 class="section-title text-center">Some of Our Many Offers</h3>
+          <p class="text-center">
+            Sababa Adventures is a proudly 100% locally owned company,
+            specializing in tailor-made safaris across Tanzania.
+          </p>
+        </div>
+
+        <Carousel>
+          {
+            [1, 2, 3, 4, 5, 6].map((item) => (
+              <div class="swiper-slide overflow-hidden rounded-xl relative group duration-700 cursor-pointer w-full">
+                <Image
+                  alt=""
+                  src={img1}
+                  class="w-full h-96 object-cover group-hover:scale-105 transition-transform brightness-90"
+                />
+                <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-gray-950/50">
+                  <h3 class="text-white text-xl md:text-3xl font-bold mb-4">
+                    4 Days Serengeti Safari
+                  </h3>
+                  <div class="flex items-center justify-between">
+                    <p class="text-white text-lg md:text-3xl">$1200</p>
+                    <button class="bg-transparent group-hover:bg-white text-white transition-colors group-hover:text-darkForestGreen border-2 border-white max-md:text-xs px-4 py-2 rounded-3xl font-poppins font-semibold">
+                      Read More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </Carousel>
+      </section>
+    </div>
+
+    <TrekkingSection />
+    
+    <section class="py-40"></section>
+  </main>
 </Layout>
